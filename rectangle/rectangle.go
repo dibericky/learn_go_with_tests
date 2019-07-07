@@ -2,6 +2,12 @@ package rectangle
 
 import "math"
 
+type Shape interface {
+	Area() float64
+}
+
+// interface resolution is implicit. If the type you pass in matches what the interface is asking for, it will compile
+
 type Rectangle struct {
 	Width  float64
 	Height float64
