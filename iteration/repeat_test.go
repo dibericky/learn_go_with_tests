@@ -6,6 +6,7 @@ import "fmt"
 func TestRepeat(t *testing.T) {
 
 	assertRepeatCharacter := func(t *testing.T, repeated, expected string) {
+		t.Helper()
 		if repeated != expected {
 			t.Errorf("expected '%s' but got '%s'", expected, repeated)
 		}
