@@ -48,15 +48,9 @@ func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
 	Greet(w, "world")
 }
 
-type DefaultSleeper struct{}
-
-func (d *DefaultSleeper) Sleep() {
-	time.Sleep(1 * time.Second)
-}
-
 func main() {
 	Greet(os.Stdout, "Elodie\n")
 	//	http.ListenAndServe(":5000", http.HandlerFunc(MyGreeterHandler))
-	sleeper := &DefaultSleeper{}
+	sleeper := &ConfigurableSleeper{1 * time.Second, time.Sleep}
 	Countdown(os.Stdout, sleeper)
 }
